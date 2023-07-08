@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:632414054418:android:2681660cd159025440d0cb",
+        "mobilesdk_app_id": "1:632414054418:android:68d262c6824c989a40d0cb",
         "android_client_info": {
-          "package_name": "com.asimmujahid.userapp"
+          "package_name": "com.example.logistic_app"
         }
       },
       "oauth_client": [
@@ -37,9 +37,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:632414054418:android:68d262c6824c989a40d0cb",
+        "mobilesdk_app_id": "1:632414054418:android:0c7b0877356b6dac40d0cb",
         "android_client_info": {
-          "package_name": "com.example.logistic_app"
+          "package_name": "com.example.rider_app"
         }
       },
       "oauth_client": [
