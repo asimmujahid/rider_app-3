@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../tabpages/earning.dart';
+//import '../tabpages/Rateus.dart';
+import '../tabpages/Rateus.dart';
 import '../tabpages/home.dart';
 import '../tabpages/profile.dart';
 import '../tabpages/contact_us.dart';
@@ -45,10 +46,7 @@ class _Main_ScreenState extends State<Main_Screen>
         controller: tabController,
         children: [
           home_tab(),
-          earning_tab(
-            totalEarnings: 200,
-            monthlyEarnings: [],
-          ),
+          rating_tab(),
           profile_tab(),
           ContactUsPage(),
         ],
@@ -56,9 +54,9 @@ class _Main_ScreenState extends State<Main_Screen>
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home",),
-          BottomNavigationBarItem(icon: Icon(Icons.credit_card), label: "Earning",),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Rate Us",),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Account",),
-          BottomNavigationBarItem(icon: Icon(Icons.star), label: "Ratings",),
+          BottomNavigationBarItem(icon: Icon(Icons.contact_page), label: "Contact Us",),
         ],
         unselectedItemColor: Colors.white54,
         selectedItemColor: Colors.white,

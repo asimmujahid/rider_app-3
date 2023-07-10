@@ -129,6 +129,20 @@ class _TruckPageState extends State<TruckPage> {
                   ),
                 ),
               ),
+              SizedBox(height: 10,),
+              Text("//Important Note:",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+              Text("Maximum Time Limit for Loading Of Small Truck is:          1 Hour"),
+              Text("Maximum Time Limit for Loading Of Medium Truck is:         2 Hour"),
+              Text("Maximum Time Limit for Loading Of Largre Truck is:         3 Hour"),
+
+              SizedBox(height: 10,),
+              Text("//Important Note:",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+              Text("If You Required Loading time limit more then the given time limit of each category then you have to pay Extra money "),
+
+
+
+
+
             ],
           ),
         ),
