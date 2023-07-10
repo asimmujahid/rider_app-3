@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Enter_Truck.dart';
+import '../companies.dart';
 
 //import 'Enter_Truck.dart';
 
@@ -61,7 +62,7 @@ class home_tab extends StatelessWidget {
                   SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (c) => Home_page()));
                     },
                     child: Text('Confirm'),
                   ),
