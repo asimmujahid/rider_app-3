@@ -67,9 +67,14 @@ class _NoTrucksState extends State<NoTrucks> {
       payment: Constants.payment,
       selectedSize: Constants.selectedSize,
       email: Constants.email,
+      is_accepted: 'no',
+      driverName: '',
+      truckColor: '',
+      truckNumber: '',
     );
     final docUser = FirebaseFirestore.instance.collection('Requests').doc();
     item.id = docUser.id;
+    Constants.requestId = item.id;
     final json = item.toJson();
     await docUser.set(json);
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(

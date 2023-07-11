@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:rider_app/splash_screen.dart';
+
 //import 'package:rider_app/splash.dart';
-Future main() async{
+Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp(
@@ -11,10 +12,9 @@ Future main() async{
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MySplash(),
+      home: const MySplash(),
     ),
-  )
-  );
+  ));
 }
 
 // class MyApp extends StatefulWidget {
@@ -33,15 +33,17 @@ Future main() async{
 // class _MyAppState extends State<MyApp> {
 //   @override
 //   Widget build(BuildContext context) {
-//     return 
+//     return
 //   }
 class MyApp extends StatefulWidget {
   final Widget? child;
+
   MyApp({this.child});
 
   static void restartApp(BuildContext context) {
     context.findAncestorStateOfType<_MyAppState>()!.restartApp();
   }
+
   // const MyApp({super.key});
 
   @override
@@ -50,6 +52,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Key key = UniqueKey();
+
   void restartApp() {
     setState(() {
       key = UniqueKey();
@@ -64,5 +67,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-

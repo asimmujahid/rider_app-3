@@ -8,5 +8,6 @@ class Constants {
   static String date = "AAA";
   static String payment = "AAA";
   static String email = "AAA";
+  static String requestId = "";
 
 }

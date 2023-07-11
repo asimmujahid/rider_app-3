@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:rider_app/constants.dart';
+import 'dart:async';
 
 class driver_accept extends StatefulWidget {
   const driver_accept({super.key});
@@ -8,38 +11,86 @@ class driver_accept extends StatefulWidget {
 }
 
 class _driver_acceptState extends State<driver_accept> {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  String driverEmail = '';
+  bool dataExist = false;
+  String truckColor = '';
+  String truckNumber = '';
+
+  late Timer timer;
+
+  void startTimer() {
+    timer = Timer.periodic(Duration(seconds: 5), (Timer t) {
+      checkData();
+    });
+  }
+
+  Future<void> checkData() async {
+    DocumentSnapshot snapshot =
+        await firestore.collection('Requests').doc(Constants.requestId).get();
+    if (snapshot.exists) {
+      dataExist = true;
+      Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+      truckColor = data['truckColor'];
+      truckNumber = data['truckNumber'];
+      driverEmail = data['driverName'];
+      setState(() {});
+    } else {
+      dataExist = false;
+      // Document does not exist
+    }
+  }
+
+  @override
+  void initState() {
+    startTimer();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Wait for driver"),
+        title: dataExist ? Text("Driver Info") : Text("Wait for driver"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: const Center(
+        child: Center(
           child: Column(
             children: [
               SizedBox(
                 height: 20,
               ),
-              Text("Waiting for the driver to accept request ",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 10,),
+              dataExist
+                  ? SizedBox.shrink()
+                  : Text("Waiting for the driver to accept request ",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
-                  Text('Logistic name: '),
+                  Text('Logistic email : $driverEmail',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
-                  Text('Truck Number '),
+                  Text('Truck Number : $truckNumber',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
-                  Text('Truck color '),
+                  Text('Truck color : $truckColor',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                 ],
               ),
             ],
@@ -111,7 +162,6 @@ class _driver_acceptState extends State<driver_accept> {
 //     );
 //   }
 // }
-
 
 // import 'package:flutter/material.dart';
 
