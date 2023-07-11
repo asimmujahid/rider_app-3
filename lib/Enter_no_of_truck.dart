@@ -1,12 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:rider_app/Wait_for_driver_accept.dart';
 import 'package:rider_app/companies.dart';
 import 'constants.dart';
 import 'models/add_item_model.dart';
 
 class NoTrucks extends StatefulWidget {
   @override
+
+  
   _NoTrucksState createState() => _NoTrucksState();
+  
 }
 
 class _NoTrucksState extends State<NoTrucks> {
@@ -51,6 +55,8 @@ class _NoTrucksState extends State<NoTrucks> {
     print('Number of Trucks: $numberOfTrucks');
     print('Selected Date: $selectedDate');
     print('Payment Option: $paymentOption');
+    Navigator.push(context, MaterialPageRoute(builder: (c) => driver_accept(
+    )));
 
     final item = AddItemModel(
       pickup_location: Constants.pickup_location,
@@ -142,16 +148,16 @@ class _NoTrucksState extends State<NoTrucks> {
             ),
             Row(
               children: [
-                Radio<String>(
-                  value: 'Easypaisa',
-                  groupValue: paymentOption,
-                  onChanged: (value) {
-                    setState(() {
-                      paymentOption = value!;
-                    });
-                  },
-                ),
-                Text('Easypaisa'),
+                // Radio<String>(
+                //   value: 'Easypaisa',
+                //   groupValue: paymentOption,
+                //   onChanged: (value) {
+                //     setState(() {
+                //       paymentOption = value!;
+                //     });
+                //   },
+                // ),
+                // Text('Easypaisa'),
               ],
             ),
             Row(

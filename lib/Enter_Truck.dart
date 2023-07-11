@@ -31,123 +31,125 @@ class _TruckPageState extends State<TruckPage> {
         padding: EdgeInsets.all(25.0),
         child: Form(
           key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                'Select Size:',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 8),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1.0,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  'Select Size:',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                   ),
-                  borderRadius: BorderRadius.circular(4.0),
                 ),
-                child: DropdownButtonFormField<String>(
-                  value: selectedSize,
-                  items: <String>[
-                    'Small',
-                    'Medium',
-                    'Large',
-                  ].map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      Constants.selectedSize = newValue!.toString();
-                      selectedSize = newValue;
-                    });
-                  },
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please select a size';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    selectedSize = value!;
-                  },
-                ),
-              ),
-              SizedBox(height: 24),
-              Text(
-                'Number of Laborers:',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 8),
-              Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey,
-                    width: 1.0,
+                SizedBox(height: 8),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(4.0),
                   ),
-                  borderRadius: BorderRadius.circular(4.0),
-                ),
-                child: TextFormField(
-                  controller: currentController,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Enter the number of laborers',
+                  child: DropdownButtonFormField<String>(
+                    value: selectedSize,
+                    items: <String>[
+                      'Small',
+                      'Medium',
+                      'Large',
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        Constants.selectedSize = newValue!.toString();
+                        selectedSize = newValue;
+                      });
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please select a size';
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      selectedSize = value!;
+                    },
                   ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter the number of laborers';
-                    }
-                    if (!isNumeric(value)) {
-                      return 'Please enter a valid number';
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    labourers = value!;
-                  },
                 ),
-              ),
-              SizedBox(height: 36),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Constants.noOfLabors = currentController.text;
-                    Navigator.push(context, MaterialPageRoute(builder: (c) => NoTrucks()));
-                  },
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+                SizedBox(height: 24),
+                Text(
+                  'Number of Laborers:',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(4.0),
+                  ),
+                  child: TextFormField(
+                    controller: currentController,
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: 'Enter the number of laborers',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter the number of laborers';
+                      }
+                      if (!isNumeric(value)) {
+                        return 'Please enter a valid number';
+                      }
+                      return null;
+                    },
+                    onSaved: (value) {
+                      labourers = value!;
+                    },
+                  ),
+                ),
+                SizedBox(height: 36),
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Constants.noOfLabors = currentController.text;
+                      Navigator.push(context, MaterialPageRoute(builder: (c) => NoTrucks()));
+                    },
+                    child: Text(
+                      'Submit',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: 10,),
-              Text("//Important Note:",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-              Text("Maximum Time Limit for Loading Of Small Truck is:          1 Hour"),
-              Text("Maximum Time Limit for Loading Of Medium Truck is:         2 Hour"),
-              Text("Maximum Time Limit for Loading Of Largre Truck is:         3 Hour"),
-
-              SizedBox(height: 10,),
-              Text("//Important Note:",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-              Text("If You Required Loading time limit more then the given time limit of each category then you have to pay Extra money "),
-
-
-
-
-
-            ],
+                SizedBox(height: 10,),
+                Text("//Important Note:",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                Text("Maximum Time Limit for Loading Of Small Truck is:          1 Hour"),
+                Text("Maximum Time Limit for Loading Of Medium Truck is:         2 Hour"),
+                Text("Maximum Time Limit for Loading Of Largre Truck is:         3 Hour"),
+          
+                SizedBox(height: 10,),
+                Text("//Important Note:",style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                Text("If You Required Loading time limit more then the given time limit of each category then you have to pay Extra money "),
+          
+          
+          
+          
+          
+              ],
+            ),
           ),
         ),
       ),
