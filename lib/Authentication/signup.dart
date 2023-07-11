@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:rider_app/Authentication/login.dart';
 import 'package:rider_app/splash_screen.dart';
 
+import '../constants.dart';
 import '../global.dart';
 import '../widgets/progress_dialog.dart';
 // import 'package:logistic_app/Authentication/Loader_info.dart';
@@ -79,6 +80,7 @@ class _signup_pageState extends State<signup_page> {
       currentfirebaseUser = firebaseUser;
       // Navigator.pop(context, MaterialPageRoute(builder: (c) => Loader_info()));
       Fluttertoast.showToast(msg: "Account Has been created");
+      Constants.email = emailtextEditingController.text;
       Navigator.push(context, MaterialPageRoute(builder: (c) => MySplash()));
     } else {
       Navigator.pop(context);

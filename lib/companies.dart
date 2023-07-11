@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 import 'Enter_Truck.dart';
 // import 'package:flutter_application_9/drawer.dart';

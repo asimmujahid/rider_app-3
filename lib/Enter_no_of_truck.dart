@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:rider_app/companies.dart';
+import 'constants.dart';
+import 'models/add_item_model.dart';
 
 class NoTrucks extends StatefulWidget {
   @override
@@ -39,11 +43,32 @@ class _NoTrucksState extends State<NoTrucks> {
     });
   }
 
-  void _submitForm() {
+  Future<void> _submitForm() async {
+    Constants.noOfTrucks = numberOfTrucks.toString();
+    Constants.date = selectedDate.toString();
+    Constants.payment = paymentOption.toString();
     // Perform your desired actions with the form data
     print('Number of Trucks: $numberOfTrucks');
     print('Selected Date: $selectedDate');
     print('Payment Option: $paymentOption');
+
+    final item = AddItemModel(
+      pickup_location: Constants.pickup_location,
+      dropoff_location: Constants.dropoff_location,
+      date: Constants.date,
+      noOfLabors: Constants.noOfLabors,
+      noOfTrucks: Constants.noOfTrucks,
+      payment: Constants.payment,
+      selectedSize: Constants.selectedSize,
+      email: Constants.email,
+    );
+    final docUser = FirebaseFirestore.instance.collection('Requests').doc();
+    item.id = docUser.id;
+    final json = item.toJson();
+    await docUser.set(json);
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text("Request Sent"),
+    ));
   }
 
   @override
@@ -57,7 +82,7 @@ class _NoTrucksState extends State<NoTrucks> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height:16),
+            SizedBox(height: 16),
             Text(
               'Number of Trucks:',
               style: TextStyle(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'constants.dart';
 import 'Enter_no_of_truck.dart';
 
 class TruckPage extends StatefulWidget {
@@ -11,6 +11,7 @@ class _TruckPageState extends State<TruckPage> {
   final formKey = GlobalKey<FormState>();
   String? selectedSize;
   late String labourers;
+  final currentController = TextEditingController();
 
   void _submitForm() {
     if (formKey.currentState!.validate()) {
@@ -63,6 +64,7 @@ class _TruckPageState extends State<TruckPage> {
                   }).toList(),
                   onChanged: (String? newValue) {
                     setState(() {
+                      Constants.selectedSize = newValue!.toString();
                       selectedSize = newValue;
                     });
                   },
@@ -95,6 +97,7 @@ class _TruckPageState extends State<TruckPage> {
                   borderRadius: BorderRadius.circular(4.0),
                 ),
                 child: TextFormField(
+                  controller: currentController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -118,6 +121,7 @@ class _TruckPageState extends State<TruckPage> {
               Center(
                 child: ElevatedButton(
                   onPressed: () {
+                    Constants.noOfLabors = currentController.text;
                     Navigator.push(context, MaterialPageRoute(builder: (c) => NoTrucks()));
                   },
                   child: Text(

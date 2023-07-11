@@ -28,7 +28,6 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  google_maps_flutter: ^2.2.8
   font_awesome_flutter: ^10.5.0
 
   flutter:
@@ -42,7 +41,13 @@ dependencies:
   firebase_database: ^10.2.3
   firebase_core: ^2.14.0
   cloud_firestore: ^4.8.2
-
+  google_maps_flutter:
+  geocoding:
+  pull_to_refresh:
+  geolocator:
+  flutter_typeahead:
+  http:
+  flutter_google_places:
 dev_dependencies:
   flutter_test:
     sdk: flutter
