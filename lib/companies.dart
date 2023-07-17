@@ -56,7 +56,8 @@ class _Home_pageState extends State<Home_page> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                  Card(
+                 Column(children: [
+                   Card(
                     child: InkWell(
                       onTap: () => {
                       Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),
@@ -76,8 +77,12 @@ class _Home_pageState extends State<Home_page> {
                       ),
                     ),
                   ),
+                  Text("Ali Logistics",style: TextStyle(color: Colors.grey),),
+                 ],),
                   SizedBox(width: 20,),
-                    Card(
+                  Column(
+                    children: [
+                        Card(
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
                         child: Container(
@@ -93,12 +98,17 @@ class _Home_pageState extends State<Home_page> {
                                         ),
                       ),
                     ),
+                    Text("Al zubair Logistic",style: TextStyle(color: Colors.grey),),
+                    ],
+                  ),
                 ],),
                 SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                  Card(
+                  Column(
+                    children: [
+                      Card(
                     // borderOnForeground: true,
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
@@ -115,140 +125,189 @@ class _Home_pageState extends State<Home_page> {
                         ),
                       ),
                     ),
+                    Text("Lahore Logistic",style: TextStyle(color: Colors.grey),),
+                    ],
+                  ),
                   SizedBox(width: 20,),
-                    Card(
+                     Column(
+                    children: [
+                      Card(
+                    // borderOnForeground: true,
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
                         child: Container(
                           decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: AssetImage("assets/images/comp4.jpg"),fit: BoxFit.cover,
-                            )
+                            ),
                           ),
                         height: 120,
                         width: 120,
                         // color: Colors.red,
-                                        ),
+                        ),
                       ),
                     ),
+                    Text("Ibrahim Logistic",style: TextStyle(color: Colors.grey),),
+                    ],
+                  ),
                 ],),
                  SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                 Card(
+                  Column(
+                    children: [
+                      Card(
+                    // borderOnForeground: true,
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
                         child: Container(
                           decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: AssetImage("assets/images/comp5.jpg"),fit: BoxFit.cover,
-                            )
+                            ),
                           ),
                         height: 120,
                         width: 120,
                         // color: Colors.red,
-                                        ),
+                        ),
                       ),
                     ),
+                    Text("Elahi Logistic",style: TextStyle(color: Colors.grey),),
+                    ],
+                  ),
                   SizedBox(width: 20,),
-                    Card(
+                     Column(
+                    children: [
+                      Card(
+                    // borderOnForeground: true,
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
                         child: Container(
-                          // child: Text("Mobile accesories"),
                           decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: AssetImage("assets/images/comp6.jpg"),fit: BoxFit.cover,
-                            )
+                            ),
                           ),
                         height: 120,
                         width: 120,
                         // color: Colors.red,
-                                        ),
+                        ),
                       ),
                     ),
+                    Text("Hashir Logistic",style: TextStyle(color: Colors.grey),),
+                    ],
+                  ),
                 ],),
                                  SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                 Card(
+                  Column(
+                    children: [
+                      Card(
+                    // borderOnForeground: true,
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
                         child: Container(
                           decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: AssetImage("assets/images/comp77.jpg"),fit: BoxFit.cover,
-                            )
+                            ),
                           ),
                         height: 120,
                         width: 120,
                         // color: Colors.red,
-                                        ),
+                        ),
                       ),
                     ),
+                    Text("Sheraz Logistic",style: TextStyle(color: Colors.grey),),
+                    ],
+                  ),
                   SizedBox(width: 20,),
-                    Card(
+                    Column(
+                    children: [
+                      Card(
+                    // borderOnForeground: true,
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
                         child: Container(
-                          // child: Text("Mobile accesories"),
                           decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: AssetImage("assets/images/comp8.jpg"),fit: BoxFit.cover,
-                            )
+                            ),
                           ),
                         height: 120,
                         width: 120,
                         // color: Colors.red,
-                                        ),
+                        ),
                       ),
                     ),
+                    Text("Al Hammad Logistic",style: TextStyle(color: Colors.grey),),
+                    ],
+                  ),
                 ],),
                                  SizedBox(height: 20,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                 Card(
+                 Column(
+                    children: [
+                      Card(
+                    // borderOnForeground: true,
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
                         child: Container(
                           decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: AssetImage("assets/images/comp9.jpg"),fit: BoxFit.cover,
-                            )
+                            ),
                           ),
                         height: 120,
                         width: 120,
                         // color: Colors.red,
-                                        ),
+                        ),
                       ),
                     ),
+                    Text("Usama Logistic",style: TextStyle(color: Colors.grey),),
+                    ],
+                  ),
                   SizedBox(width: 20,),
-                    Card(
+                    Column(
+                    children: [
+                      Card(
+                    // borderOnForeground: true,
                       child: InkWell(
                         onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (c) => TruckPage())),},
                         child: Container(
-                          // child: Text("Mobile accesories"),
                           decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(10),
                             image: DecorationImage(
                               image: AssetImage("assets/images/comp10.jpg"),fit: BoxFit.cover,
-                            )
+                            ),
                           ),
                         height: 120,
                         width: 120,
                         // color: Colors.red,
-                                        ),
+                        ),
                       ),
-                    ),
+
+                    ),Text("Assad Logistics",style: TextStyle(color: Colors.grey),),
                 ],),
 
               ],),
-            ),
+            ],
           ),
         ),
       ),
+    ),
+    ),
     );
   }
 }
